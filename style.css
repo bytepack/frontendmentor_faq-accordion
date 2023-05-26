@@ -1,0 +1,211 @@
+@font-face {
+    font-family: 'Kumbh Sans';
+    src: url("fonts/KumbhSans-Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Kumbh Sans';
+    src: url("fonts/KumbhSans-Bold.ttf") format("truetype");
+    font-weight: 700;
+    font-style: normal;
+}
+
+*, *::after, *::before {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: 'Kumbh Sans', sans-serif;
+    font-size: 1.2rem;
+    min-height: 100vh;
+    background-image: linear-gradient(180deg, hsl(273, 75%, 66%), hsl(240, 73%, 65%));
+    background-color: hsl(273, 75%, 66%);
+}
+
+.page {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5rem 0;
+}
+
+.faq {
+    position: relative;
+    background-color: #fff;
+    width: 80%;
+    border-radius: 20px;
+    margin-top: calc(100vw / 4);
+    box-shadow: 0 7px 15px hsla(0, 0%, 0%, 0.3);
+}
+
+.faq__container{
+    padding: calc(20vw + 5rem) 2rem 4rem;
+}
+
+.faq__photo {
+    width: 70%;
+    position: absolute;
+    z-index: 10;
+    top: -1.3rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+.faq__photo-shadow {
+    width: 70%;
+    position: absolute;
+    z-index: 9;
+    top: 0.5rem;
+    left: 50%;
+    transform: translateX(-50%)
+}
+
+.faq__photo-box{
+    display: none;
+}
+
+.faq__heading {
+    text-align: center;
+    font-size: 3rem;
+}
+
+.faq__content {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    line-height: 1.4;
+}
+
+.faq__radio {
+    display: none;
+}
+
+
+.faq__text {
+    --arrow-width: 1rem;
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid hsl(240, 5%, 91%);
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    cursor: pointer;
+    outline: none !important;
+    -webkit-appearance: none !important;
+    -webkit-tap-highlight-color: #0000 !important;
+}
+
+
+.faq__title-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.faq__title {
+    color: hsl(240, 5%, 40%);
+    font-weight: 700;
+    font-size: 1.3rem;
+    padding-right: calc(var(--arrow-width) / 2);
+    transition: color 0.3s;
+}
+
+.faq__radio:checked + .faq__text .faq__title {
+    color: hsl(238, 29%, 16%);
+}
+
+.faq__arrow {
+    transition: transform 0.3s 0.1s;
+    width: var(--arrow-width);
+}
+
+.faq__radio:checked + .faq__text .faq__arrow {
+    transform: scaleY(-1);
+    transition: transform 0.3s;
+}
+
+
+.faq__description {
+    color: hsl(240, 5%, 40%);
+    opacity: 0;
+    padding-right: calc(var(--arrow-width) * 2);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s, opacity 0.3s;
+}
+
+.faq__radio:checked + .faq__text .faq__description {
+    max-height: 300rem;
+    opacity: 1;
+    transition: max-height 1s, opacity 1s;
+}
+
+@media only screen and (min-width: 48em) {
+    .faq {
+        max-width: 90rem;
+        margin-top: 0;
+    }
+
+    .faq__container{
+        position: relative;
+        padding: 6rem 6rem 6rem calc(35% + 10rem);
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        overflow: hidden;
+    }
+
+    .faq__photo {
+        width: 50%;
+        top: 50%;
+        left: -7%;
+        transform: translate(0, -50%);
+    }
+
+    .faq__photo-shadow {
+        width: 80%;
+        top: -5%;
+        left: 0;
+    }
+
+    .faq__photo-box{
+        display: inline;
+        width: 18%;
+        position: absolute;
+        top: 43%;
+        left: -10%;
+        z-index: 10;
+    }
+
+    .faq__title:hover{
+        color: hsl(14, 88%, 65%) !important;
+    }
+
+    .faq__description{
+        overflow-y: auto;
+    }
+
+    .faq__radio:checked + .faq__text .faq__description {
+        max-height: 10rem;
+    }
+}
+
+@media only screen and (min-width: 62em) {
+    .faq__container{
+        padding: 8rem 8rem 8rem calc(40% + 10rem);
+    }
+
+    .faq__photo-shadow {
+        top: -25%;
+    }
+
+}
