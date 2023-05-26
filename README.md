@@ -12,4 +12,3 @@ This is a solution to the [FAQ accordion card challenge on Frontend Mentor](http
 - HTML5
 - CSS3
 - Javascript
-- CSS Grid
