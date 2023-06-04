@@ -39,6 +39,7 @@ body {
 }
 
 .faq {
+    --arrow-width: 1rem;
     position: relative;
     background-color: #fff;
     width: 80%;
@@ -91,7 +92,6 @@ body {
 
 
 .faq__text {
-    --arrow-width: 1rem;
     display: flex;
     flex-direction: column;
     border-bottom: 1px solid hsl(240, 5%, 91%);
@@ -114,7 +114,7 @@ body {
     color: hsl(240, 5%, 40%);
     font-weight: 700;
     font-size: 1.3rem;
-    padding-right: calc(var(--arrow-width) / 2);
+    padding-right: calc(var() / 2);
     transition: color 0.3s;
 }
 
@@ -128,24 +128,26 @@ body {
 }
 
 .faq__radio:checked + .faq__text .faq__arrow {
-    transform: scaleY(-1);
+    transform: rotate(0.5turn);
     transition: transform 0.3s;
 }
 
-
-.faq__description {
-    color: hsl(240, 5%, 40%);
+.faq__description-wrapper{
+    display: grid;
+    grid-template-rows: 0fr;
     opacity: 0;
+    transition: grid-template-rows 0.5s, opacity 0.5s;
+    color: hsl(240, 5%, 40%);
     padding-right: calc(var(--arrow-width) * 2);
-    max-height: 0;
+}
+.faq__description {
     overflow: hidden;
-    transition: max-height 0.3s, opacity 0.3s;
 }
 
-.faq__radio:checked + .faq__text .faq__description {
-    max-height: 300rem;
+.faq__radio:checked + .faq__text .faq__description-wrapper {
+    grid-template-rows: 1fr;
     opacity: 1;
-    transition: max-height 1s, opacity 1s;
+    /*transition: grid-template-rows 1s, opacity 1s;*/
 }
 
 @media only screen and (min-width: 48em) {
@@ -191,12 +193,9 @@ body {
     }
 
     .faq__description{
-        overflow-y: auto;
-    }
-
-    .faq__radio:checked + .faq__text .faq__description {
         max-height: 10rem;
     }
+
 }
 
 @media only screen and (min-width: 62em) {

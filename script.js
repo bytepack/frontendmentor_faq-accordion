@@ -16,3 +16,4 @@ addEventListener("resize", ()=>{
         faq.style.height = "auto"
     }
 })
+
